@@ -21,6 +21,7 @@ function TodoList() {
         }
         const newTodosList:Todos[] = [...todos,todo]
         setTodos(newTodosList)
+        setInput("")
     }
     
     function handleEdit(name:string):void{
