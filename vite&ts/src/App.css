@@ -1,0 +1,220 @@
+body{
+  margin: 0;
+}
+
+.app{
+  display: flex;
+  ;
+  width: 100vw;
+  height:100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background-color: rgba(233, 233, 233, 0.935);
+  overflow: hidden;
+}
+
+/* TodoList styling: */
+.todo_list_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  height: 75%;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: auto;
+  font-family: monospace;
+}
+.todo_list_container::-webkit-scrollbar{
+    width: 1px;
+}
+.todo_list_container::-webkit-scrollbar-thumb{
+  background-color: transparent;
+}
+
+/* todoList title */
+.todo_list_container > h3{
+  font-size: 2.5rem;
+  color: rgb(94, 94, 94);
+}
+
+/* todolist input styling: */
+.todo_list_input_div{
+  width: 90%;
+  height: 8%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.todo_list_input_div > input{
+  flex: 1;
+  margin-right: 20px;
+  border: 1px solid grey;
+  border-radius: 50px;
+  padding: 15px;
+  transition: 1.5s;
+}
+
+.todo_list_input_div > input:focus{
+  border-radius: 5px;
+  background-color: rgb(224, 247, 255);
+}
+
+/* todolist add button styling: */
+.todo_list_input_div > button {
+  --b: 2px;   /* border thickness */
+  --s: .25em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  display: flex;
+  align-items: center;
+}
+
+.todo_list_input_div > button:hover,
+.todo_list_input_div > button:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.todo_list_input_div > button:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
+
+
+
+/* todolist ul & li styling: */
+.todo_list_container > ul{
+  display: flex;
+  width: 95%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 2%;
+  margin:0;
+}
+
+ul > li{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  border: 0px solid rgb(102, 101, 101);
+  border-radius: 10px;
+  padding:10px;
+  margin: 10px 20px;
+  font-size: 1.5rem;
+  background-color: rgba(253, 237, 61, 0.868);
+  box-shadow: 1px 2px rgb(180, 180, 180);
+}
+
+ul > li > span{
+  flex: 1;
+}
+
+ul > li > button{
+  margin: 0 5px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: rgba(255, 158, 158, 0.775);
+}
+
+
+/* modal styling */
+.modal_todo_name{
+  font-size: 30px;
+  color: white;
+}
+
+.modal_input_button_div{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.modal_input{
+  flex: 1;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left:2px solid white;
+  border-top:hidden;
+  border-right:hidden;
+  padding: 10px;
+  width: 70%;
+  height: auto;
+  transition: 0.3s ease;
+  outline: none;
+  color: white;
+  font-size:1.3rem;
+  caret-color: white;
+}
+.modal_input::placeholder{
+  color:rgba(255, 255, 255, 0.6);
+}
+.modal_input:focus{
+  border-radius: 10px;
+  border:2.5px solid rgb(255, 255, 255);
+}
+
+.modal_button{
+  font-size: 1rem;
+  width: 15%;
+  margin-left:15px;
+  height: auto;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  transition: 0.5s ease-in;
+  position: relative;
+  overflow: hidden;
+}
+.modal_button:hover{
+  font-size: 1.1rem;
+}
+.modal_button::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  transition: 0.5s;
+}
+.modal_button::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  transition: 0.5s;
+}
+.modal_button:hover::before, .modal_button:hover::after{
+  width: 100%;
+  height: 100%;
+}
